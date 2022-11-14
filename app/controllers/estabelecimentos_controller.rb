@@ -35,6 +35,13 @@ class EstabelecimentosController < ApplicationController
     end
   end
 
+  def destroy
+    @estabelecimento = Estabelecimento.find(params[:id])
+    @estabelecimento.destroy
+
+    redirect_to root_path, status: :see_other
+  end
+
   private
     def estebelecimento_params
       params.require(:estabelecimento).permit(:nome, :cnes)

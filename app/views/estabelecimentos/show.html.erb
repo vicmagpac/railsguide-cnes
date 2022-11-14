@@ -1,4 +1,5 @@
 <h1><%= @estabelecimento.nome + " - " + @estabelecimento.cnes %></h1>
 <ul>
   <li><%= link_to "Editar", edit_estabelecimento_path(@estabelecimento) %></li>
+  <li><%= link_to "Remover", estabelecimento_path(@estabelecimento), data: {turbo_method: :delete, turbo_confirm: "Você tem certeza?"} %></li>
 </ul>
