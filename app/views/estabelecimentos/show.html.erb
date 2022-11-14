@@ -3,3 +3,28 @@
   <li><%= link_to "Editar", edit_estabelecimento_path(@estabelecimento) %></li>
   <li><%= link_to "Remover", estabelecimento_path(@estabelecimento), data: {turbo_method: :delete, turbo_confirm: "Você tem certeza?"} %></li>
 </ul>
+
+<h2>Comentários</h2>
+<% @estabelecimento.comments.each do |comment| %>
+  <p>
+    <strong>Commenter:</strong> <%= comment.commenter %>
+  </p>
+  <p>
+    <strong>Comentário:</strong> <%= comment.body %>
+  </p>
+<% end %>
+
+<h2>Add a comment</h2>
+<%= form_with model: [ @estabelecimento, @estabelecimento.comments.build] do |form| %>
+  <p>
+    <%= form.label :commenter %>
+    <%= form.text_field :commenter %>
+  </p>
+  <p>
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
