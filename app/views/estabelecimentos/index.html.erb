@@ -1,0 +1,10 @@
+<h1>Estabelecimentos</h1>
+<ul>
+    <% @estabelecimentos.each do |estabelecimento| %>
+        <li>
+            <%= link_to estabelecimento.nome + " - " + estabelecimento.cnes, estabelecimento %>
+        </li>
+    <% end %>
+</ul>
+
+<%= link_to "Novo Estebelecimento", new_estabelecimento_path %>
