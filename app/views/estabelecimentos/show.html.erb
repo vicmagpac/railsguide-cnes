@@ -1,1 +1,4 @@
 <h1><%= @estabelecimento.nome + " - " + @estabelecimento.cnes %></h1>
+<ul>
+  <li><%= link_to "Editar", edit_estabelecimento_path(@estabelecimento) %></li>
+</ul>
